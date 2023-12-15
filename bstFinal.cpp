@@ -2,7 +2,72 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Node 
+{#include<iostream>
+#include <bits/stdc++.h>
+using namespace std;
+class Node 
 {
+	public:
+	    int data ;
+	    Node *left, *right;
+	    
+};
+
+//class for functions of Binary Search Tree
+class BST
+{
+	public:
+		Node* root;
+        //function to create a new node
+		Node* newnode(int val)
+		{
+		    Node *temp = new Node;
+		    temp->left = temp->right = NULL;
+		    temp->data = val;
+		    return temp;
+		}
+
+		//function to insert node into BST
+		Node* Insert(Node* root , int data)
+		{
+		    if(!root)
+		    {
+		        Node* temp ;
+		        temp=newnode(data) ;
+		        return temp ;
+		    }
+		    if(data > root->data)
+		    {
+		        root->right = Insert(root->right , data) ;
+		    }
+		    else if(data < root->data)
+		    {
+		        root->left = Insert(root->left , data) ;
+		    }
+		    return root ;
+		}
+		
+        //function to perfrom inorder traversal
+		void Inorder(Node* root)
+		{
+		    if(!root)
+		    {
+		        return ;
+		    }
+		    Inorder(root->left);
+		    cout << root->data << " " ;
+		    Inorder(root->right) ;
+		}
+		
+        //function to perfrom preorder traversal
+		void Preorder(Node* root)
+		{
+		    if(!root)
+		    {
+		        return ;
+		    }
+		     cout << root->data << " " ;
+}
 	public:
 	    int data ;
 	    Node *left, *right;
@@ -187,7 +252,7 @@ class BST
 		            }
 		            free(temp);
 		        }
-		        return root ;
+		        return root;
 		    }
 		}
 		
@@ -309,7 +374,7 @@ int main()
 	            		cout <<"\nPostorder:" ;
 	            		obj.Postorder(bst);
 	            		cout<<endl;
-	            		break
+	            		break;
 	        case 8: s=0;
 	        		break;
 	            	
